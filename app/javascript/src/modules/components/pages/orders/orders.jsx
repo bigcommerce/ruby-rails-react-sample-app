@@ -10,8 +10,11 @@ import {
   Badge
 } from '@bigcommerce/big-design';
 import { DeleteIcon } from '@bigcommerce/big-design-icons';
+
 import Loader from '../../common/Loader';
 import {ApiService} from "../../../../services/apiServices";
+import { alertsManager } from "../../../../app";
+
 export default function Order(props) {
   let {storeId} = props;
 
@@ -21,7 +24,6 @@ export default function Order(props) {
   const [currentOrder, setCurrentOrder] = useState('');
   const [currentStatus, setCurrentStatus] = useState('');
   const [orders, setOrders] = useState([]);
-  const alertsManager = createAlertsManager();
 
   //Pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,11 +53,12 @@ export default function Order(props) {
         const findIndex = orders.findIndex( order => order.id === currentOrder.id);
         newOrders[findIndex] = newOrder;
         setOrders(newOrders);
-        addAlert();
+        AddAlert('Order Update', 'Order Has Been Cancelled Successfully!', 'success')
         setLoading(false);
       })
       . catch(function (error) {
         console.log(error);
+        AddAlert('Error', 'Something Went Wrong, Please Try Again!', 'error')
         setLoading(false);
       })
   }
@@ -63,33 +66,34 @@ export default function Order(props) {
   function handleDelete() {
     setIsDelete(false);
     setLoading(true);
-
     ApiService.deleteOrder({store_id: storeId, order_id: currentOrder.id})
       .then(function (response){
         let newOrders = orders
         newOrders = orders.filter(order => order.id !== currentOrder.id)
         setOrders(newOrders);
+        AddAlert('Order Delete', 'Order Has Been Deleted Successfully!', 'success')
         setLoading(false);
       })
       . catch(function (error) {
         console.log(error);
+        AddAlert('Error', 'Something Went Wrong, Please Try Again!', 'error')
         setLoading(false);
       })
   }
 
-  function addAlert() {
+  function AddAlert(title, details, type) {
     const alert = {
-      header: 'Order Updated',
+      header: title,
       messages: [
         {
-          text: `Order updated successfully!`,
+          text: details,
         },
       ],
-      type: 'success',
-      autoDismiss: true,
+      type: type,
       onClose: () => null,
-    };
-    alertsManager.add(alert)
+      autoDismiss: true
+    }
+    alertsManager.add(alert);
   }
 
   function orderStatus(status){

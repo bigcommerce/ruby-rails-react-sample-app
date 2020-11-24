@@ -1,9 +1,14 @@
 import React from 'react'
+import { AlertsManager, createAlertsManager } from '@bigcommerce/big-design';
 
 import Main from './modules/main'
 
 export default function App() {
   return(
-    <Main/>
+    <>
+      <AlertsManager manager={alertsManager} />
+      <Main/>
+    </>
   )
 }
+export const alertsManager = createAlertsManager();
