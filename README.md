@@ -31,7 +31,19 @@
 
 APP_NAME: "Big Commerce App"
 APP_API: "API"
-APP_SECRET: "SECRET"
+BC_CLIENT_SECRET: "SECRET"
+BC_CLIENT_ID: ‘BC_CLIENT_ID’
+APP_URL: "NGROK_FORWARDED_URL"
+```
+
+## ENV variables
+- Create file `config/application.yml`
+```.env
+
+APP_NAME: "Big Commerce App"
+APP_API: "API"
+BC_CLIENT_SECRET: "SECRET"
+BC_CLIENT_ID: ‘BC_CLIENT_ID’
 APP_URL: "NGROK_FORWARDED_URL"
 ```
 

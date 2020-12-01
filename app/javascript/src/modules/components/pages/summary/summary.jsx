@@ -51,7 +51,7 @@ export default function Summary(props) {
                  onClick: () => {
                    window.open(`https://${storeInfo.domain}`, '_blank')
                  }}}>
-          <p>A view in to your BigCommerce store front.</p>
+          <p>A view in to your BigCommerce storefront.</p>
           <Box backgroundColor="white" border="box" borderRadius="normal" padding="medium">
             <h3>Domain</h3>
             <p>{storeInfo.domain}</p>

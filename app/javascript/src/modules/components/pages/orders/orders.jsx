@@ -167,9 +167,9 @@ export default function Order(props) {
       <Panel header="Orders ">
         <Table
           columns={[
-            { header: 'OrderId', hash: 'id', render: ({ id }) => id },
+            { header: 'Order ID', hash: 'id', render: ({ id }) => id },
             { header: 'Billing Name', hash: 'billing_address', render: ({ billing_address }) => billing_address.first_name },
-            { header: 'Order Total', hash: 'subtotal_inc_tax', render: ({ subtotal_inc_tax }) => Number(subtotal_inc_tax).toFixed(2) },
+            { header: 'Order Total', hash: 'subtotal_inc_tax', render: ({ subtotal_inc_tax }) => `$ ${Number(subtotal_inc_tax).toFixed(2)}` },
             { header: 'Order Status', hash: 'status', render:  ({ status }) => orderStatus(status) },
             { header: '', hash: 'id', render: ({ id, status }) => orderUpdate(id, status) },
             { header: '', hash: 'id', render: ({ id }) => renderOnDelete(id) },
