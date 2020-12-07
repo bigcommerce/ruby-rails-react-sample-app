@@ -1,4 +1,4 @@
-# Big Commerce  app
+# BigCommerce  app
 
 ## Requirement
 - Ruby `2.7.1`
@@ -26,21 +26,12 @@
 - `rake db:migrate`
 
 ## ENV variables
+We need to set `NGROK_FORWARDED_URL` before starting Rails Server
+
 - Create file `config/application.yml`
 ```.env
 
-APP_NAME: "Big Commerce App"
-APP_API: "API"
-BC_CLIENT_SECRET: "SECRET"
-BC_CLIENT_ID: ‘BC_CLIENT_ID’
-APP_URL: "NGROK_FORWARDED_URL"
-```
-
-## ENV variables
-- Create file `config/application.yml`
-```.env
-
-APP_NAME: "Big Commerce App"
+APP_NAME: "BigCommerce App"
 APP_API: "API"
 BC_CLIENT_SECRET: "SECRET"
 BC_CLIENT_ID: ‘BC_CLIENT_ID’
@@ -52,5 +43,5 @@ APP_URL: "NGROK_FORWARDED_URL"
 - Open Postgres App, Redis App
 - Open a new tab and run ngrok: `ngrok http 3000`
 - Edit `APP_URL` in `config/application.yml` value to forwarded ngrok url
-- Config forwarded ngrok url in Shopify app dashboard.
+- Config forwarded ngrok url in BigCommerce app dashboard.
 - Open forwarded ngrok url and login a development store

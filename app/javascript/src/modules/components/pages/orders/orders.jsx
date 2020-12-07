@@ -142,7 +142,11 @@ export default function Order(props) {
       .then(function (response) {
         setOrders(response.data.orders)
         setLoading(false);
-        console.log(response)
+
+        const maxItems = currentPage * itemsPerPage;
+        const lastItem = Math.min(maxItems, response.data.orders.length);
+        const firstItem = Math.max(0, maxItems - itemsPerPage);
+        setCurrentItems(response.data.orders.slice(firstItem, lastItem));
       })
       .catch(function (error) {
         console.log(error);
@@ -174,7 +178,7 @@ export default function Order(props) {
             { header: '', hash: 'id', render: ({ id, status }) => orderUpdate(id, status) },
             { header: '', hash: 'id', render: ({ id }) => renderOnDelete(id) },
           ]}
-          items={orders}
+          items={currentItems}
           itemName="Orders"
           pagination={{
             currentPage,
