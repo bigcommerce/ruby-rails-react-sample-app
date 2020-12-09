@@ -1,5 +1,5 @@
 {
-  "name": "BigCommerece",
+  "name": "BigCommerce",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.12.1",
