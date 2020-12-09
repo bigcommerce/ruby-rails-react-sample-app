@@ -1,4 +1,4 @@
-# BigCommerce  app
+# Sample Ruby on Rails App w/ React FE for BigCommerce
 
 ## Requirement
 - Ruby `2.7.1`
@@ -32,7 +32,6 @@ We need to set `NGROK_FORWARDED_URL` before starting Rails Server
 ```.env
 
 APP_NAME: "BigCommerce App"
-APP_API: "API"
 BC_CLIENT_SECRET: "SECRET"
 BC_CLIENT_ID: ‘BC_CLIENT_ID’
 APP_URL: "NGROK_FORWARDED_URL"
@@ -42,6 +41,6 @@ APP_URL: "NGROK_FORWARDED_URL"
 - Install [Foreman](https://mattstauffer.com/blog/using-a-procfile-to-streamline-your-local-development/) one time only - `gem install foreman`
 - Open Postgres App, Redis App
 - Open a new tab and run ngrok: `ngrok http 3000`
-- Edit `APP_URL` in `config/application.yml` value to forwarded ngrok url
+- Edit `APP_URL` in `config/application.yml` value to forwarded ngrok url (i.e c75b5744dxxx.ngrok.io)
 - Config forwarded ngrok url in BigCommerce app dashboard.
 - Open forwarded ngrok url and login a development store
