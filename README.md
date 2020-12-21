@@ -25,6 +25,15 @@
 - `rake db:create`
 - `rake db:migrate`
 
+## Creating the BigCommerce App
+
+- Go to https://devtools.bigcommerce.com/
+- Create a new app
+- Within the technical details step, use these callback urls
+  - Auth Callback: `https://{{base-app-url}}/auth/bigcommerce/callback`
+  - Load Callback URL: `https://{{base-app-url}}/load`
+  - Uninstall Callback URL: `https://{{base-app-url}}/uninstall`
+
 ## ENV variables
 We need to set `NGROK_FORWARDED_URL` before starting Rails Server
 
@@ -41,6 +50,6 @@ APP_URL: "NGROK_FORWARDED_URL"
 - Install [Foreman](https://mattstauffer.com/blog/using-a-procfile-to-streamline-your-local-development/) one time only - `gem install foreman`
 - Open Postgres App, Redis App
 - Open a new tab and run ngrok: `ngrok http 3000`
-- Edit `APP_URL` in `config/application.yml` value to forwarded ngrok url (i.e c75b5744dxxx.ngrok.io)
+- Edit `APP_URL` in `config/application.yml` value to forwarded ngrok url without the protocol (i.e c75b5744dxxx.ngrok.io)
 - Config forwarded ngrok url in BigCommerce app dashboard.
 - Open forwarded ngrok url and login a development store
